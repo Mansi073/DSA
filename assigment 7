@@ -40,3 +40,67 @@ int main()
        cout<<g<<endl;
    }
 }
+class Solution {
+public:
+    int guessNumber(int n) {
+      int s = 1;
+      int e = n;
+
+      while (e >= s)
+      {
+       int mid = s + (e - s)/2;
+       if (guess(mid) == 0)
+       {
+           return mid;
+       }
+       else if (guess(mid) == -1)
+       {
+           e = mid - 1;
+       }
+       else 
+       {
+           s = mid +1;
+       }
+      }
+      return 1;
+          }
+      
+    
+};
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        //find x s.t. (x + 1) * x / 2 <= n
+        //x*x < x*x+x <= 2*n < (x+1)*(x+1)
+        //x < sqrt(2*n) < x+1
+        int x = ceil(sqrt(2)*sqrt(n));
+        
+        while((x+1)*(x/2.0) > n){
+            x--;
+        }
+        
+        return x;
+    }
+};class Solution {
+public:
+    int firstBadVersion(int n) {
+       long long int beg,last,mid;
+        beg = 1 , last = n;
+        long int pos = 1;
+        while(beg<=last){
+            // ensure you calculate mid values this way ,otherwise ,it would cause overflow
+            mid = beg + (last-beg)/2;
+            bool x = isBadVersion(mid);
+            if(x == true){
+                pos = mid;
+                last = mid-1;
+            }
+            else
+                beg = mid+1;
+        }
+
+        // return the first index of faulty product
+        return pos;
+     
+    }
+};
