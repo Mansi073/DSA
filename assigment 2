@@ -222,3 +222,42 @@ int main() {
 
     return 0;
 }
+# include <stdio.h>
+using namespace std;
+ void update ( int*a, int*b) { 
+ int c, d;
+ c = (*a + * b);
+ d = abs( *b-*a);
+ *a=c;
+ *b=d;
+ }
+ 
+ int main () {
+ int a, b;
+ int *pa=&a, *pb = &b;
+   scanf ("%d %d" , &a,&b );
+    uodate(pa, pb);
+    printf("%d\n%d",a,b);
+    
+     return 0;
+     }
+     
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+	
+    int n,sum;
+    scanf("%d", &n);
+    //Complete the code to calculate the sum of the five digits on n.
+    while(n!=0)
+    {
+        sum+=n%10;
+        n=n/10;
+    }
+    printf("%d",sum);
+
+    return 0;
+}
